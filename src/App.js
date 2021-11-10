@@ -10,6 +10,7 @@ import ManageOrder from './Components/ManageOrder/ManageOrder';
 import AddProducts from './Components/AddProducts/AddProducts'
 import MakeAdmin from './Components/MakeAdmin/MakeAdmin';
 import AllCars from './Components/AllCars/AllCars';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route exact path='/add-products'><AddProducts></AddProducts></Route>
         <Route exact path='/make-admin'><MakeAdmin></MakeAdmin></Route>
         </Switch>
+        <Footer></Footer>
       </BrowserRouter>
       
     </div>
