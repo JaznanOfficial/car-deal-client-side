@@ -16,6 +16,7 @@ const Navigation = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto d-flex align-items-center justify-content-center">
                             <Link to="/home" className='navigation-link'>Home</Link>
+                            <Link to="/allCars" className='navigation-link'>Explore all cars</Link>
                             
                             
                             <NavDropdown title="Dashboard" id="basic-nav-dropdown">
