@@ -2,6 +2,7 @@ import React from 'react';
 import './Header.css'
 import car from './car.png'
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -10,7 +11,7 @@ const Header = () => {
                 <h1><span className='header-text'>POWER &</span> BEAUTY</h1>
                 <h4 className='my-3'>Find the Car You Want, Your Way <br />
                     Then, build your deal to fit your needs.</h4>
-                    <Button variant="outline-danger" >Explore All Cars</Button>
+                    <Link to='/allCars'><Button variant="outline-danger" >Explore All Cars</Button></Link>
             </div>
             <div><img src={car} alt="" className='w-100 mt-3' /></div>
         </div>

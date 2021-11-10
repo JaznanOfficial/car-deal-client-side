@@ -9,6 +9,7 @@ import Payment from './Components/Payment/Payment';
 import ManageOrder from './Components/ManageOrder/ManageOrder';
 import AddProducts from './Components/AddProducts/AddProducts'
 import MakeAdmin from './Components/MakeAdmin/MakeAdmin';
+import AllCars from './Components/AllCars/AllCars';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Switch>
         <Route exact path='/'><Homepage></Homepage></Route>
         <Route exact path='/home'><Homepage></Homepage></Route>
+        <Route exact path='/allCars'><AllCars></AllCars></Route>
         <Route exact path='/my-order'><MyOrders></MyOrders></Route>
         <Route exact path='/review'><Reviews></Reviews></Route>
         <Route exact path='/payment'><Payment></Payment></Route>
