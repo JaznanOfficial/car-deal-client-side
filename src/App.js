@@ -11,6 +11,7 @@ import AddProducts from './Components/AddProducts/AddProducts'
 import MakeAdmin from './Components/MakeAdmin/MakeAdmin';
 import AllCars from './Components/AllCars/AllCars';
 import Footer from './Components/Footer/Footer';
+import PurchaseProcess from './Components/PurchaseProcess/PurchaseProcess';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route exact path='/'><Homepage></Homepage></Route>
         <Route exact path='/home'><Homepage></Homepage></Route>
         <Route exact path='/allCars'><AllCars></AllCars></Route>
+        <Route exact path='/purchase/:id'><PurchaseProcess></PurchaseProcess></Route>
         <Route exact path='/my-order'><MyOrders></MyOrders></Route>
         <Route exact path='/review'><Reviews></Reviews></Route>
         <Route exact path='/payment'><Payment></Payment></Route>

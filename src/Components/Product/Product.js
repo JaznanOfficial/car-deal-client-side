@@ -7,7 +7,7 @@ const Product = (props) => {
     
     const { name, img, details, price,_id } = singleProduct;
     const shortDetails = details.slice(0, 300)
-    console.log(shortDetails);
+    
     return (
         <div className='mb-5'>
         
