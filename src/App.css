@@ -1,5 +1,8 @@
 .App {
-  text-align: center;
+  text-align: left;
+}
+.App h1{
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .App-logo {

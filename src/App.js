@@ -1,23 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import Navigation from './Components/Navigation/Navigation';
+import { BrowserRouter,Switch,Route } from 'react-router-dom';
+import Homepage from './Components/Homepage/Homepage';
+import MyOrders from './Components/MyOrders/MyOrders';
+import Reviews from './Components/Reviews/Reviews';
+import Payment from './Components/Payment/Payment';
+import ManageOrder from './Components/ManageOrder/ManageOrder';
+import AddProducts from './Components/AddProducts/AddProducts'
+import MakeAdmin from './Components/MakeAdmin/MakeAdmin';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Navigation></Navigation>
+        <Switch>
+        <Route exact path='/'><Homepage></Homepage></Route>
+        <Route exact path='/home'><Homepage></Homepage></Route>
+        <Route exact path='/my-order'><MyOrders></MyOrders></Route>
+        <Route exact path='/review'><Reviews></Reviews></Route>
+        <Route exact path='/payment'><Payment></Payment></Route>
+        <Route exact path='/manage-orders'><ManageOrder></ManageOrder></Route>
+        <Route exact path='/add-products'><AddProducts></AddProducts></Route>
+        <Route exact path='/make-admin'><MakeAdmin></MakeAdmin></Route>
+        </Switch>
+      </BrowserRouter>
+      
     </div>
   );
 }

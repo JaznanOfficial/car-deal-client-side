@@ -1,0 +1,14 @@
+.header{
+    background-image: linear-gradient(to right, #0f2e5e,#266ed4) !important;
+    color: aliceblue;
+    font-family: 'Ubuntu', sans-serif;
+}
+.header-text{
+    color: #E22937;
+}
+.header h1{
+    font-weight: bolder;
+}
+.header img{
+    margin-right: 0px;
+}

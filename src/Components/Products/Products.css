@@ -1,0 +1,11 @@
+.products-div{
+    text-align: center;
+}
+.products{
+    background-image: url('./car-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height:100%;
+    
+}

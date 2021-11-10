@@ -1,0 +1,8 @@
+.footer{
+    background-image: url('./wave.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    text-align: center;
+}
