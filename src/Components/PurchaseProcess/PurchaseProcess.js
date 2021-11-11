@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { useHistory, useLocation, useParams } from "react-router";
 import useAuth from '../Hooks/useAuth'
+import Swal from 'sweetalert2'
 
 const PurchaseProcess = () => {
     const { id } = useParams();
@@ -41,15 +42,22 @@ const PurchaseProcess = () => {
         fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
-                'content-type':'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(orderData)
         })
             .then(res => res.json())
             .then(data => {
-            console.log(data);
+                console.log(data);
             })
-        alert('Your order successfully added! now your going to ALL CARS page')
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'You are successfully submited your order',
+                showConfirmButton: false,
+                timer: 3000
+            })
+        
         history.replace(uri);
 
     }
