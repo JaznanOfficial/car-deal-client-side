@@ -11,7 +11,7 @@ const AllCar = (props) => {
         
           <Col>
             <Card className='rounded shadow'>
-              <Card.Img variant="top" src={img} width='400px' height='350px' />
+              <Card.Img variant="top" src={img} width='300px' height='250px' />
                     <Card.Body>
                         <h1 className='text-danger'>{name}</h1>
                         <h3 className='text-success'>{price}</h3>
