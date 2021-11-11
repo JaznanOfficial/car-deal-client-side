@@ -12,7 +12,7 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const history = useHistory();
     const location = useLocation()
-    console.log(location);
+    // console.log(location);
     const uri = '/home'
 
 
@@ -30,7 +30,7 @@ const Register = () => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         if (password.length < 6) {
             setError('Password must be at least 6 character')
             return;

@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { useParams } from "react-router";
+import useAuth from '../Hooks/useAuth'
 
 const PurchaseProcess = () => {
     const { id } = useParams();
     const [purchases, setPurchases] = useState([]);
+    const { user } = useAuth()
+    const {myOrder,setMyOrder} = useState({})
+    
     useEffect(() => {
         fetch("https://agile-anchorage-04157.herokuapp.com/cars")
             .then((res) => res.json())
@@ -13,6 +17,21 @@ const PurchaseProcess = () => {
     const matchedData = purchases.find((purchase) => purchase._id == id);
     
     const { _id, name, img, details, price } = matchedData || {};
+
+    const userName = user.displayName;
+    const email = user.email
+    
+
+    const obj = JSON.stringify({userName: userName, email:email,orderName:name,price:price})
+
+    const handleBookingProcess = (e) => {
+        e.preventDefault();
+        console.log(obj);
+        
+    }
+
+
+
     return (
         <div>
             <div className="d-lg-flex flex-row-reverse justify-content-between mx-auto w-75 align-items-center">
@@ -29,14 +48,15 @@ const PurchaseProcess = () => {
                 <div className="w-100 m-lg-5 my-3">
                     <div className="d-lg-flex justify-content-center mx-auto w-100 align-items-center">
                         <div className="w-100 my-3">
-                            <Form>
+                            <Form onSubmit={handleBookingProcess}>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Your Name</Form.Label>
                                     <Form.Control
                                         type="name"
                                         placeholder="Your Name"
-                                        value=""
-                                        onBlur="{handleName}"
+                                        defaultValue={user.displayName}
+                                        // onBlur={handleName}
+                                        // disabled
                                     />
                                 </Form.Group>
 
@@ -45,8 +65,9 @@ const PurchaseProcess = () => {
                                     <Form.Control
                                         type="email"
                                         placeholder="Your Email"
-                                        value=""
-                                        onBlur="{handleEmail}"
+                                        defaultValue={user.email}
+                                        // onBlur={handleEmail}
+                                        // disabled
                                     />
                                 </Form.Group>
                                 <Form.Group className="mb-3">
@@ -59,7 +80,7 @@ const PurchaseProcess = () => {
                                 </Form.Group>
 
                                 <Button
-                                    onSubmit="{handleBookingProcess}"
+                                    
                                     variant="primary"
                                     type="submit"
                                 >
