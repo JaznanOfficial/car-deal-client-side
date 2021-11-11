@@ -26,8 +26,8 @@ const Navigation = () => {
                             <Link to="/home" className='navigation-link'>Home</Link>
                             <Link to="/allCars" className='navigation-link'>Explore all cars</Link>
                             
-                            
-                            <NavDropdown title="Dashboard" id="basic-nav-dropdown">
+                            {user.email && 
+                                <NavDropdown title="Dashboard" id="basic-nav-dropdown">
                                 <Link to="/my-order" className="dropdown-item ">
                                     My Orders
                                 </Link>
@@ -38,8 +38,11 @@ const Navigation = () => {
                                     Payment
                                 </Link>
                             </NavDropdown>
+                            }
+                            
 
-                            <NavDropdown title="Admin Panel" id="basic-nav-dropdown">
+                            {user.email && 
+                                <NavDropdown title="Admin Panel" id="basic-nav-dropdown">
                                 <Link to="/manage-orders" className="dropdown-item ">
                                     Manage All Orders
                                 </Link>
@@ -50,10 +53,16 @@ const Navigation = () => {
                                     Make Admin
                                 </Link>
                             </NavDropdown>
-                            <Link to='/login'><Button variant="outline-light">Log In</Button></Link>
-                            <Button variant="outline-light" onClick={logOut}>Log Out</Button>
+                            }
                             {
-                                user.email && <h4>{user.email}</h4>
+                                user.email ?
+                                <Button variant="outline-light" onClick={logOut}>Log Out</Button>
+                                :
+                                <Link to='/login'><Button variant="outline-light">Log In</Button></Link>
+                                
+                            } &nbsp; &nbsp;
+                            {
+                                user.email && <h4 className='text-light'>{user.email}</h4>
                             }
                         </Nav>
                     </Navbar.Collapse>
