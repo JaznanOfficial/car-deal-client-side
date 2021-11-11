@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
 import { useParams } from "react-router";
@@ -7,7 +8,7 @@ const PurchaseProcess = () => {
     const { id } = useParams();
     const [purchases, setPurchases] = useState([]);
     const { user } = useAuth()
-    const {myOrder,setMyOrder} = useState({})
+    // const {myOrder,setMyOrder} = useState(obj)
     
     useEffect(() => {
         fetch("https://agile-anchorage-04157.herokuapp.com/cars")
@@ -22,12 +23,30 @@ const PurchaseProcess = () => {
     const email = user.email
     
 
-    const obj = JSON.stringify({userName: userName, email:email,orderName:name,price:price})
-
+    
+    // const orders = obj
     const handleBookingProcess = (e) => {
         e.preventDefault();
-        console.log(obj);
-        
+        const orderData = {userName: userName, email:email,orderName:name,price:price}
+        console.log(orderData);
+
+        // axios.post('http://localhost:5000/orders',obj)
+        //     .then(res => {
+        //     console.log(res);
+        // })
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type':'application/json'
+            },
+            body: JSON.stringify(orderData)
+        })
+            .then(res => res.json())
+            .then(data => {
+            console.log(data);
+        })
+
+
     }
 
 
