@@ -11,8 +11,8 @@ const Login = () => {
             <h1 className='text-center text-primary my-5'>Login Please</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
       
-      <input type='email' {...register("Email")} />
-      <input type="password" {...register("Password")} />
+      <input type='email' {...register("email")} placeholder='Your Email' />
+      <input type="password" {...register("password")} placeholder='Your Password' />
       <input type="submit" />
             </form>
             <h1 className='text-center text-primary'>________________</h1>

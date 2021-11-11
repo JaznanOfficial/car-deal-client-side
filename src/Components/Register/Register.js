@@ -10,9 +10,9 @@ const Register = () => {
         <div className='register'>
         <h1 className='text-center text-primary my-5'>Register</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
-      <input type='text' {...register("Name")} placeholder='Your Name' />
-      <input type='email' {...register("Email")} placeholder='Your Email' />
-      <input type="password" {...register("Password")} placeholder='Your Password' />
+      <input type='text' {...register("name")} placeholder='Your Name' />
+      <input type='email' {...register("email")} placeholder='Your Email' />
+      <input type="password" {...register("password")} placeholder='Your Password' />
       <input type="submit" />
             </form>
             <h1 className='text-center text-primary'>________________</h1>
