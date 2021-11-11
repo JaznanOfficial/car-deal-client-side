@@ -1,13 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Form, Button, Card } from "react-bootstrap";
-import { useParams } from "react-router";
+import { useHistory, useLocation, useParams } from "react-router";
 import useAuth from '../Hooks/useAuth'
 
 const PurchaseProcess = () => {
     const { id } = useParams();
     const [purchases, setPurchases] = useState([]);
     const { user } = useAuth()
+    const history = useHistory();
+    const location = useLocation()
+    // console.log(location);
+    const uri = '/allCars'
     // const {myOrder,setMyOrder} = useState(obj)
     
     useEffect(() => {
@@ -44,8 +48,9 @@ const PurchaseProcess = () => {
             .then(res => res.json())
             .then(data => {
             console.log(data);
-        })
-
+            })
+        alert('Your order successfully added! now your going to ALL CARS page')
+        history.replace(uri);
 
     }
 
