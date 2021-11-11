@@ -7,7 +7,11 @@ const PrivateRoute = ({ children, ...rest }) => {
     const { user, isLoading } = useAuth();
     
     if (isLoading) {
-        return <Spinner animation="grow" variant="info" />
+        return <div className='text-center my-5'>
+        <Spinner animation="grow" variant="danger" />
+  <Spinner animation="grow" variant="warning" />
+  <Spinner animation="grow" variant="info" />
+        </div>
     }
     return (
         <Route
