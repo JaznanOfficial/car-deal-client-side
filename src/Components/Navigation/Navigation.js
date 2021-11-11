@@ -62,7 +62,7 @@ const Navigation = () => {
                                 
                             } &nbsp; &nbsp;
                             {
-                                user?.displayName && <h4 className='text-light'>{user.displayName}</h4>
+                                user?.displayName && <h4 className='text-light'><i class="fas fa-user"></i> {user.displayName}</h4>
                             }
                         </Nav>
                     </Navbar.Collapse>
