@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import initializeConfig from '../Firebase/firebase.init';
-import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged,signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged,signOut,updateProfile } from "firebase/auth";
 
 
 
@@ -32,6 +32,20 @@ const useFirebase = () => {
     }
     
     /* login process......................... */
+
+
+    const updateName = (name) => {
+        updateProfile(auth.currentUser, {
+            displayName: name
+          }).then(() => {
+            // Profile updated!
+             
+            // ...
+          }).catch((error) => {
+            // An error occurred
+            // ...
+          });
+    }
     
     const logout = () => {
         signOut(auth)
@@ -67,7 +81,8 @@ useEffect(() => {
         registerWithPassword,
         isLoading,
         setIsLoading,
-        logout
+        logout,
+        updateName,
     };
 };
 

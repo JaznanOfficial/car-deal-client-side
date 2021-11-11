@@ -9,7 +9,8 @@ import useAuth from '../Hooks/useAuth';
 const Login = () => {
     const { signinWithPassword,setIsLoading } = useAuth();
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  const [password, setPassword] = useState('');
+  const [error,setError] = useState('')
     const history = useHistory();
     const location = useLocation()
     console.log(location);
@@ -19,13 +20,18 @@ const Login = () => {
     const handleEmail = (e) => {
         e.preventDefault()
         setEmail(e.target.value);
+        
 }
     const handlePassword = (e) => {
         e.preventDefault()
         setPassword(e.target.value);
 }
     const handleSubmit = (e) => {
-        e.preventDefault()
+      e.preventDefault()
+      if (password.length < 6) {
+        setError('Password must be at least 6 character')
+        return;
+      }
         signinWithPassword(email, password)
             .then((userCredential) => {
                 setIsLoading(true)
@@ -34,16 +40,19 @@ const Login = () => {
             const user = userCredential.user;
             console.log(user);
             // ...
+              setError('')
           })
           .catch((error) => {
             
             const errorMessage = error.message;
+            setError(errorMessage);
           })
           .finally (
             () => {
               setIsLoading(false)
             }
-          )
+      )
+      
 }
 
    
@@ -56,7 +65,8 @@ const Login = () => {
       <input type='email' onBlur={handleEmail}  placeholder='Your Email' />
       <input type="password" onBlur = {handlePassword} placeholder='Your Password' />
       <input type="submit" value='Log In' />
-            </form>
+        </form>
+        <h6 className='text-danger text-center'>{error}</h6>
             <h1 className='text-center text-primary'>________________</h1>
             <h4 className='text-center'>New here? Please <Link to='/register'> Register </Link></h4>
         </div>

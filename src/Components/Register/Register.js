@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import './Register.css'
 import { Link } from "react-router-dom";
 import useAuth from '../Hooks/useAuth';
+import { useHistory, useLocation } from 'react-router';
 
 const Register = () => {
-    const { registerWithPassword,setUser } = useAuth();
+    const { registerWithPassword,setUser,updateName,setIsLoading } = useAuth();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [error,setError] = useState('')
     const [password, setPassword] = useState('');
+    const history = useHistory();
+    const location = useLocation()
+    console.log(location);
+    const uri = '/home'
 
 
     const handleName = (e) => {
@@ -25,8 +31,15 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (password.length < 6) {
+            setError('Password must be at least 6 character')
+            return;
+          }
         registerWithPassword(email, password)
-        .then((userCredential) => {
+            .then((userCredential) => {
+                updateName(name)
+                setIsLoading(true)
+                history.replace(uri);
             // Signed in 
             const user = userCredential.user;
             setUser(user)
@@ -35,7 +48,7 @@ const Register = () => {
           .catch((error) => {
             
             const errorMessage = error.message;
-            // ..
+            setError(errorMessage)
           });
     }
     
@@ -49,6 +62,7 @@ const Register = () => {
       <input type="password"  placeholder='Your Password' onBlur={handlePassword} />
       <input type="submit" value='Register' />
             </form>
+            <h6 className='text-danger text-center'>{error}</h6>
             <h1 className='text-center text-primary'>________________</h1>
             <h4 className='text-center'>Already Registered? Please <Link to='/login'> Log In </Link></h4>
         </div>

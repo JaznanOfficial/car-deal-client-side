@@ -7,7 +7,7 @@ import './Navigation.css'
 
 const Navigation = () => {
     const { user, logout } = useAuth()
-    
+    console.log(user);
     const logOut = () => {
         logout()
         
@@ -62,7 +62,7 @@ const Navigation = () => {
                                 
                             } &nbsp; &nbsp;
                             {
-                                user.email && <h4 className='text-light'>{user.email}</h4>
+                                user?.displayName && <h4 className='text-light'>{user.displayName}</h4>
                             }
                         </Nav>
                     </Navbar.Collapse>
