@@ -42,7 +42,7 @@ const Navigation = () => {
                                     Make Admin
                                 </Link>
                             </NavDropdown>
-                            <Button variant="outline-light">Log In</Button>
+                            <Link to='/login'><Button variant="outline-light">Log In</Button></Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

@@ -12,6 +12,8 @@ import MakeAdmin from './Components/MakeAdmin/MakeAdmin';
 import AllCars from './Components/AllCars/AllCars';
 import Footer from './Components/Footer/Footer';
 import PurchaseProcess from './Components/PurchaseProcess/PurchaseProcess';
+import Login from './Components/Login/Login';
+import Register from './Components/Register/Register';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         <Route exact path='/manage-orders'><ManageOrder></ManageOrder></Route>
         <Route exact path='/add-products'><AddProducts></AddProducts></Route>
         <Route exact path='/make-admin'><MakeAdmin></MakeAdmin></Route>
+        <Route exact path='/login'><Login></Login></Route>
+        <Route exact path='/register'><Register></Register></Route>
         </Switch>
         <Footer></Footer>
       </BrowserRouter>
