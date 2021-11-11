@@ -20,7 +20,7 @@ const AllCars = () => {
               
               
       </div>
-      <Row xs={1} md={2} className="g-4 products">
+      <Row xs={1} md={3} className="g-4 products">
           {
             allCars.map(allCar => <AllCar
               key={allCar._id}
