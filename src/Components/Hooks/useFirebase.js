@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import initializeConfig from '../Firebase/firebase.init';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged,signOut } from "firebase/auth";
 
 
 
@@ -10,18 +10,64 @@ const useFirebase = () => {
     
     const auth = getAuth();
     const [user, setUser] = useState({})
+    const [isLoading,setIsLoading] = useState(true)
     
 
 
 
 
-
+/* register process......................... */
     const registerWithPassword = (email, password) => {
+        console.log(user);
         return createUserWithEmailAndPassword(auth, email, password)
-  
     }
+    /* register process......................... */
+    
+    /* login process......................... */
+
+    const signinWithPassword = (email, password) => {
+        console.log('successfully loged in');
+     return   signInWithEmailAndPassword(auth, email, password)
+     
+    }
+    
+    /* login process......................... */
+    
+    const logout = () => {
+        signOut(auth)
+        .then(() => {
+            // Sign-out successful.
+          }).catch((error) => {
+            // An error happened.
+          });
+    }
+   
+
+// observer
+useEffect(() => {
+    const unsubscribed = onAuthStateChanged(auth, user => {
+        if (user) {
+            setUser(user)
+        }
+        else {
+            setUser({})
+        }
+        setIsLoading(false)
+    });
+    return () => unsubscribed;
+}, [])
+
+    
+    
+
     return {
+        setUser,
+        user,
+        signinWithPassword,
         registerWithPassword,
+        isLoading,
+        setIsLoading,
+        logout
     };
 };
 

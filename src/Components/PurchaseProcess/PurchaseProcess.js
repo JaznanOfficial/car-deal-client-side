@@ -11,6 +11,7 @@ const PurchaseProcess = () => {
             .then((data) => setPurchases(data));
     }, []);
     const matchedData = purchases.find((purchase) => purchase._id == id);
+    
     const { _id, name, img, details, price } = matchedData || {};
     return (
         <div>

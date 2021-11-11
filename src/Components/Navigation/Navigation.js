@@ -1,10 +1,18 @@
 import React from "react";
 import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import useAuth from "../Hooks/useAuth";
 import logo from './logo.jpg'
 import './Navigation.css'
 
 const Navigation = () => {
+    const { user, logout } = useAuth()
+    
+    const logOut = () => {
+        logout()
+        
+}
+    
     return (
         <div>
             <Navbar variation='light' expand="lg" className='navbar-custom'>
@@ -43,6 +51,10 @@ const Navigation = () => {
                                 </Link>
                             </NavDropdown>
                             <Link to='/login'><Button variant="outline-light">Log In</Button></Link>
+                            <Button variant="outline-light" onClick={logOut}>Log Out</Button>
+                            {
+                                user.email && <h4>{user.email}</h4>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
