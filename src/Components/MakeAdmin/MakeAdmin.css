@@ -1,0 +1,11 @@
+.makeAdmin form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.makeAdmin form input, textarea{
+    margin: 10px 10px;
+    width: 300px;
+    
+}

@@ -12,7 +12,7 @@ const AddProducts = () => {
         
         axios.post('https://agile-anchorage-04157.herokuapp.com/addCars', data)
             .then(res => {
-            console.log(res);
+            
             })
             Swal.fire({
                 position: 'center',
