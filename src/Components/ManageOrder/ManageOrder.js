@@ -4,7 +4,7 @@ import { Button, Card, Col, Row } from 'react-bootstrap';
 const ManageOrder = () => {
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch("https://agile-anchorage-04157.herokuapp.com/orders")
+        fetch("https://agile-anchorage-04157.herokuapp.com/manage-orders")
             .then((res) => res.json())
             .then((data) => setOrders(data));
     }, []);

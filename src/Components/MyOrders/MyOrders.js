@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import useAuth from "../Hooks/useAuth";
 
 const MyOrders = () => {
+    const {user} = useAuth()
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch("https://agile-anchorage-04157.herokuapp.com/orders")
+        fetch(`https://agile-anchorage-04157.herokuapp.com/orders?email=${user.email}`)
             .then((res) => res.json())
             .then((data) => setOrders(data));
     }, []);
