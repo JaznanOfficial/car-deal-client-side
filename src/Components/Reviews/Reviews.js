@@ -1,9 +1,10 @@
 import React from 'react';
+import GivingRating from '../givingRating/GivingRating';
 
 const Reviews = () => {
     return (
         <div>
-            <h1>this is users review</h1>
+            <GivingRating></GivingRating>
         </div>
     );
 };
