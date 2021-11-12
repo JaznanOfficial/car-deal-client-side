@@ -13,7 +13,7 @@ const Login = () => {
   const [error,setError] = useState('')
     const history = useHistory();
     const location = useLocation()
-    console.log(location);
+    // console.log(location);
     const uri = location.state?.from || '/home'
 
 

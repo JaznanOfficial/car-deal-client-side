@@ -48,7 +48,7 @@ const PurchaseProcess = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
             })
             Swal.fire({
                 position: 'center',

@@ -3,6 +3,8 @@ import './Register.css'
 import { Link } from "react-router-dom";
 import useAuth from '../Hooks/useAuth';
 import { useHistory, useLocation } from 'react-router';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const Register = () => {
     const { registerWithPassword,setUser,updateName,setIsLoading } = useAuth();
@@ -13,7 +15,7 @@ const Register = () => {
     const history = useHistory();
     const location = useLocation()
     // console.log(location);
-    const uri = '/home'
+    const uri = '/login'
 
 
     const handleName = (e) => {
@@ -30,7 +32,7 @@ const Register = () => {
     }
 
     const handleSubmit = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         if (password.length < 6) {
             setError('Password must be at least 6 character')
             return;
@@ -39,11 +41,26 @@ const Register = () => {
             .then((userCredential) => {
                 updateName(name)
                 setIsLoading(true)
-                history.replace(uri);
+                
             // Signed in 
             const user = userCredential.user;
-            setUser(user)
+                setUser(user)
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'You are successfully registered. please log in now',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+
+                axios.post('http://localhost:5000/users', user)
+                    .then(res => {
+                    console.log(res);
+                })
+
+
             // ...
+            history.replace(uri);
           })
           .catch((error) => {
             
