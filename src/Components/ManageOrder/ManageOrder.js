@@ -3,6 +3,7 @@ import { Button, Card, Col, Row } from 'react-bootstrap';
 
 const ManageOrder = () => {
     const [orders, setOrders] = useState([]);
+    const [status,setStatus] = useState('processing...')
     useEffect(() => {
         fetch("https://agile-anchorage-04157.herokuapp.com/manage-orders")
             .then((res) => res.json())
@@ -10,6 +11,10 @@ const ManageOrder = () => {
     }, []);
     console.log(orders);
     
+
+    const handleStatus = () => {
+        setStatus('✓ accepted')
+    }
     return (
         <div className='mx-2 text-center'>
         <h1 className="text-danger text-center mt-3"> All user's orders</h1>
@@ -25,12 +30,12 @@ const ManageOrder = () => {
                             <h5>{order.price}</h5>
                             <h6 className='text-primary'>{order.email}</h6>
                         </Card.Body>
-                        <div className='w-25 mx-auto text-secondary'><h6 className='mb-3'>{order.status}</h6>
+                        <div className='w-25 mx-auto text-secondary'><h6 className='mb-3'>{status}</h6>
                         
                         </div>
                         </div>
                         <div className="d-grid m-3">
-                        <Button variant="outline-success">Accept Order</Button>
+                        <Button onClick={handleStatus} variant="outline-success">Accept Order</Button>
 </div>
                     </Card>
                 </Col>
