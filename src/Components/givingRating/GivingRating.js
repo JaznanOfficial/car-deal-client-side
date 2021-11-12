@@ -55,7 +55,7 @@ const GivingRating = () => {
         <form onSubmit={handleSubmit}>
       
                 <textarea placeholder='Write your review' onBlur={handleReview}/>
-      <input type='number' placeholder='Type your rating up to 5' onBlur={handleRating} />
+                <input type='text' placeholder='Type your rating up to 5' onBlur={handleRating} maxLength={1}/>
       <input type="submit" />
     </form>
         </div>
