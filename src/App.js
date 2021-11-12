@@ -6,7 +6,6 @@ import Homepage from './Components/Homepage/Homepage';
 import MyOrders from './Components/MyOrders/MyOrders';
 import Reviews from './Components/Reviews/Reviews';
 import Payment from './Components/Payment/Payment';
-import ManageOrder from './Components/ManageOrder/ManageOrder';
 import AddProducts from './Components/AddProducts/AddProducts'
 import MakeAdmin from './Components/MakeAdmin/MakeAdmin';
 import AllCars from './Components/AllCars/AllCars';
@@ -16,6 +15,9 @@ import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import AuthProvider from './Components/Context/AuthProvider';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import ManageOrder from './Components/ManageOrder/ManageOrder';
+
+
 
 function App() {
   return (
