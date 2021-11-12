@@ -10,7 +10,7 @@ const AllCars = () => {
             .then(data => setAllCars(data));
         ;
     }, [])
-  console.log(allCars)
+  // console.log(allCars)
   // const { _id, name, details, price, img } = allCars;
     return (
       <div className='products-div mx-2 my-5'>

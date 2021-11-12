@@ -32,14 +32,14 @@ const PurchaseProcess = () => {
     // const orders = obj
     const handleBookingProcess = (e) => {
         e.preventDefault();
-        const orderData = {userName: userName, email:email,orderName:name,price:price}
+        const orderData = {userName: userName, email:email,orderName:name,price:price,status:'processing...',img:img}
         console.log(orderData);
 
         // axios.post('http://localhost:5000/orders',obj)
         //     .then(res => {
         //     console.log(res);
         // })
-        fetch('http://localhost:5000/orders', {
+        fetch('https://agile-anchorage-04157.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
