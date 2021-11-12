@@ -2,6 +2,8 @@ import userEvent from '@testing-library/user-event';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
+import { useHistory, useLocation } from 'react-router';
+import Swal from 'sweetalert2';
 import useAuth from '../Hooks/useAuth';
 import './GivingRating.css'
 
@@ -11,6 +13,10 @@ const GivingRating = () => {
     const [review,setReview] = useState('')
     const [rating,setRating] = useState('')
     // const [review,setReview] = useState('')
+    const history = useHistory();
+    const location = useLocation()
+    // console.log(location);
+    const uri = '/home'
     
 
     const handleReview = (e) => {
@@ -31,7 +37,16 @@ const GivingRating = () => {
         axios.post('https://agile-anchorage-04157.herokuapp.com/review', reviewData)
             .then(res => {
             console.log(res);
-        })
+            })
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Your review successfully sibmitted',
+                showConfirmButton: false,
+                timer: 3000
+            })
+        
+        history.replace(uri);
         console.log(reviewData);
     }
     return (
