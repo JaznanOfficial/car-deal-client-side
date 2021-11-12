@@ -53,7 +53,7 @@ const Register = () => {
                     timer: 3000
                 })
 
-                axios.post('http://localhost:5000/users', user)
+                axios.post('https://agile-anchorage-04157.herokuapp.com/users', user)
                     .then(res => {
                     console.log(res);
                 })
