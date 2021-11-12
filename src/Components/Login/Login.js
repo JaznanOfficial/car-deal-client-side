@@ -38,7 +38,7 @@ const Login = () => {
                 history.replace(uri);
             // Signed in 
             const user = userCredential.user;
-            console.log(user);
+            
             // ...
               setError('')
           })
