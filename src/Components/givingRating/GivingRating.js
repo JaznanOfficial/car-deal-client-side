@@ -26,7 +26,12 @@ const GivingRating = () => {
 
     const handleRating = (e) => {
         e.preventDefault()
-        setRating(e.target.value);
+        if (!e.target.value > 5) {
+            setRating(e.target.value);
+        }
+        else {
+            setRating('5')
+    }
     }
 
     const reviewData = {review:review,rating:rating,userName:user.displayName}
@@ -54,8 +59,11 @@ const GivingRating = () => {
             <h1 className='text-center text-primary my-3'>Give us your review and rating</h1>
         <form onSubmit={handleSubmit}>
       
-                <textarea placeholder='Write your review' onBlur={handleReview}/>
-                <input type='text' placeholder='Type your rating up to 5' onBlur={handleRating} maxLength={1}/>
+                <textarea placeholder='Write your review' onBlur={handleReview} />
+                
+
+
+                <input type='text' placeholder='Type your rating up to 5' onBlur={handleRating} maxLength={1} min={0} max={5} />
       <input type="submit" />
     </form>
         </div>
