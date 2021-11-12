@@ -28,7 +28,7 @@ const GivingRating = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        axios.post('http://localhost:5000/review', reviewData)
+        axios.post('https://agile-anchorage-04157.herokuapp.com/review', reviewData)
             .then(res => {
             console.log(res);
         })
