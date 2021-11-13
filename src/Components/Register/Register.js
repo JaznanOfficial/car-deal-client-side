@@ -15,7 +15,7 @@ const Register = () => {
     const history = useHistory();
     const location = useLocation()
     // console.log(location);
-    const uri = '/login'
+    const uri = '/home'
 
 
     const handleName = (e) => {
