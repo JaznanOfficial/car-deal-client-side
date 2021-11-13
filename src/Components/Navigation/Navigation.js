@@ -45,6 +45,9 @@ const Navigation = () => {
                                 <Link to="/manage-orders" className="dropdown-item ">
                                     Manage All Orders
                                 </Link>
+                                <Link to="/manage-users" className="dropdown-item ">
+                                    Manage All Users
+                                </Link>
                                 <Link to="/add-products" className="dropdown-item ">
                                     Add A Product
                                 </Link>

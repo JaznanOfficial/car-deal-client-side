@@ -16,6 +16,7 @@ import Register from './Components/Register/Register';
 import AuthProvider from './Components/Context/AuthProvider';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import ManageOrder from './Components/ManageOrder/ManageOrder';
+import ManageUser from './Components/ManageUser/ManageUser';
 
 
 
@@ -35,6 +36,7 @@ function App() {
         <PrivateRoute exact path='/review'><Reviews></Reviews></PrivateRoute>
         <PrivateRoute exact path='/payment'><Payment></Payment></PrivateRoute>
         <PrivateRoute exact path='/manage-orders'><ManageOrder></ManageOrder></PrivateRoute>
+        <PrivateRoute exact path='/manage-users'><ManageUser></ManageUser></PrivateRoute>
         <PrivateRoute exact path='/add-products'><AddProducts></AddProducts></PrivateRoute>
         <PrivateRoute exact path='/make-admin'><MakeAdmin></MakeAdmin></PrivateRoute>
         <Route exact path='/login'><Login></Login></Route>
