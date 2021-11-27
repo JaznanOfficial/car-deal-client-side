@@ -2,6 +2,11 @@
 
 At first let's see  [my fifth react love](https://car-deal-project.web.app/)...bt broken!!!.
 
+* It’s collection of offensive cars only
+* Visitors can see cars collections. But needed to register or log in to place orders.
+* It’s a very fast reloadable and one-page application
+
+
 * It was my fifth react site. it was a lot of hardest than another assignment. You'll see i created a car selling site.Because i tried to do different something than others. but i skip something.because ...
 
 * in this site i used home,services,my order and some another router. it was my new experience. i tried to do my best.
